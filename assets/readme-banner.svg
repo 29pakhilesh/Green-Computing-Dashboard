@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="200" viewBox="0 0 920 200" role="img" aria-label="Smart Green Computing Dashboard">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="45%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#34d399" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="24" result="b"/>
+    </filter>
+  </defs>
+  <rect width="920" height="200" rx="16" fill="url(#bg)"/>
+  <g opacity="0.12">
+    <path d="M0 40h920M0 80h920M0 120h920M0 160h920" stroke="#94a3b8" stroke-width="0.5"/>
+    <path d="M80 0v200M240 0v200M400 0v200M560 0v200M720 0v200" stroke="#94a3b8" stroke-width="0.5"/>
+  </g>
+  <ellipse cx="200" cy="100" rx="140" ry="80" fill="#22c55e" filter="url(#blur)" opacity="0.25"/>
+  <ellipse cx="760" cy="60" rx="120" ry="70" fill="#38bdf8" filter="url(#blur)" opacity="0.2"/>
+  <rect x="32" y="170" width="856" height="3" rx="1.5" fill="url(#glow)"/>
+  <text x="460" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#f8fafc" letter-spacing="-0.02em">
+    Smart Green Computing
+  </text>
+  <text x="460" y="112" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="500" fill="#94a3b8" letter-spacing="0.35em">
+    DASHBOARD
+  </text>
+  <text x="460" y="148" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#6ee7b7" opacity="0.95">
+    Energy · CO‚ · Hardware intelligence · Dark-first UI
+  </text>
+</svg>
