@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="12" y1="10" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34d399" offset="0" />
+      <stop stop-color="#22c55e" offset="0.45" />
+      <stop stop-color="#38bdf8" offset="1" />
+    </linearGradient>
+  </defs>
+
+  <rect x="8" y="8" width="48" height="48" rx="16" fill="url(#bg)" opacity="0.98" />
+
+  <!-- Leaf silhouette -->
+  <path
+    d="M42.5 20.3C34.7 22.7 28.5 29.2 26.6 37.5C26.5 38 26.8 38.4 27.3 38.5C35.6 40.8 43 34.9 44.4 28.1C45.1 24.8 44.1 21.6 42.5 20.3Z"
+    fill="#052e16"
+    opacity="0.88"
+  />
+
+  <!-- Subtle leaf highlight -->
+  <path
+    d="M29.7 37.1C33.6 30.7 37.6 26.9 42.6 24.8"
+    stroke="#bbf7d0"
+    stroke-opacity="0.75"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+
+  <!-- Monogram -->
+  <text
+    x="32"
+    y="41"
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+    font-size="20"
+    font-weight="800"
+    fill="#02110a"
+    opacity="0.9"
+  >
+    SG
+  </text>
+</svg>
+
