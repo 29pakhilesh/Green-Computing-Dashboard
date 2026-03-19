@@ -132,7 +132,7 @@ sequenceDiagram
 <summary><strong>Recommended — Make</strong></summary>
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/29pakhilesh/green-computing-dashboard
 cd EVS
 make install
 make dev
