@@ -17,6 +17,34 @@ export interface HardwareDevice {
 // Emission factor in kg CO2 per kWh (approx global electricity mix)
 export const EMISSION_FACTOR_KG_PER_KWH = 0.475;
 
+export type ElectricityMixKey = "global_avg" | "renewables_high" | "grid_mixed" | "coal_intensive";
+
+export const ELECTRICITY_MIXES: Record<
+  ElectricityMixKey,
+  { label: string; emissionFactorKgPerKwh: number; note: string }
+> = {
+  global_avg: {
+    label: "Global average",
+    emissionFactorKgPerKwh: 0.475,
+    note: "Approximate world electricity mix (used as default)."
+  },
+  renewables_high: {
+    label: "Renewables-heavy",
+    emissionFactorKgPerKwh: 0.12,
+    note: "Cleaner grid assumption (higher renewable share)."
+  },
+  grid_mixed: {
+    label: "Mixed grid",
+    emissionFactorKgPerKwh: 0.30,
+    note: "A mid-range electricity mix assumption."
+  },
+  coal_intensive: {
+    label: "Coal-intensive",
+    emissionFactorKgPerKwh: 0.70,
+    note: "More carbon-heavy grid assumption."
+  }
+};
+
 export const HARDWARE_DB: HardwareDevice[] = [
   // Desktop CPUs
   {
@@ -374,7 +402,11 @@ export function energyKWh(powerWatts: number, hoursPerDay: number): number {
   return (powerWatts * hoursPerDay) / 1000;
 }
 
-export function emissionsKg(powerWatts: number, hoursPerDay: number): number {
-  return energyKWh(powerWatts, hoursPerDay) * EMISSION_FACTOR_KG_PER_KWH;
+export function emissionsKg(
+  powerWatts: number,
+  hoursPerDay: number,
+  emissionFactorKgPerKwh: number = EMISSION_FACTOR_KG_PER_KWH
+): number {
+  return energyKWh(powerWatts, hoursPerDay) * emissionFactorKgPerKwh;
 }
 
