@@ -30,7 +30,7 @@ function TopicsPage() {
               }
               window.close();
             }}
-            className="hidden rounded-full border border-slate-700 bg-slate-900 px-3 py-1 text-[11px] text-slate-300 hover:border-emerald-500/70 hover:text-emerald-200 md:inline-flex"
+            className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1 text-[10px] text-slate-300 hover:border-emerald-500/70 hover:text-emerald-200 sm:text-[11px] md:inline-flex"
             aria-label="Back to dashboard (closes this tab)"
           >
             Dashboard
