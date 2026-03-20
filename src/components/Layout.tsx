@@ -31,7 +31,7 @@ export function Layout({ children, onNavigate, activeSection }: LayoutProps) {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black text-slate-50">
+    <div className="relative min-h-screen overflow-x-hidden bg-black text-slate-50">
       {/* Dark background visuals: glows + grid */}
       <div
         aria-hidden="true"
@@ -57,9 +57,9 @@ export function Layout({ children, onNavigate, activeSection }: LayoutProps) {
         }}
       />
 
-      <header className="sticky top-0 z-30 relative border-b border-slate-800/80 bg-black/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-          <div className="flex items-center gap-2">
+      <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-black/80 backdrop-blur">
+        <div className="relative mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 md:px-6">
+          <div className="flex min-w-0 items-center gap-2">
             <img
               src="/logo.svg"
               alt="Smart Green"
@@ -103,10 +103,11 @@ export function Layout({ children, onNavigate, activeSection }: LayoutProps) {
             />
           </nav>
           <button
-            className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-100 shadow-sm hover:border-emerald-500/60 hover:bg-emerald-500/15 hover:text-emerald-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 md:text-xs"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-100 shadow-sm hover:border-emerald-500/60 hover:bg-emerald-500/15 hover:text-emerald-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 sm:text-[11px] md:text-xs"
             onClick={() => {
               if (typeof window !== "undefined") {
-                window.open("#topic", "_blank");
+                const url = `${window.location.origin}${window.location.pathname}#topic`;
+                window.open(url, "_blank", "noopener,noreferrer");
               }
             }}
           >
@@ -114,21 +115,22 @@ export function Layout({ children, onNavigate, activeSection }: LayoutProps) {
             Theory View
           </button>
           <button
-            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-slate-200 md:hidden"
+            className="ml-2 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-slate-200 md:hidden"
             onClick={() => setNavOpen((v) => !v)}
             aria-label="Toggle navigation"
           >
             ☰
           </button>
         </div>
-        <AnimatePresence>
-          {navOpen && (
-            <motion.nav
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="border-t border-slate-800 bg-slate-950/95 px-4 pb-3 pt-2 md:hidden"
-            >
+          <AnimatePresence>
+            {navOpen && (
+              <motion.nav
+                initial={{ opacity: 0, y: -6, maxHeight: 0 }}
+                animate={{ opacity: 1, y: 0, maxHeight: 280 }}
+                exit={{ opacity: 0, y: -6, maxHeight: 0 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute left-0 right-0 top-full z-60 border-t border-slate-800 bg-slate-950/95 px-4 pb-3 pt-2 md:hidden overflow-hidden pointer-events-auto"
+              >
               <div className="flex flex-col gap-1 text-xs font-medium text-slate-200">
                 <NavLink
                   label="Home"
@@ -171,12 +173,12 @@ export function Layout({ children, onNavigate, activeSection }: LayoutProps) {
                   }}
                 />
               </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+              </motion.nav>
+            )}
+          </AnimatePresence>
       </header>
 
-      <main className="relative z-10 mx-auto max-w-6xl px-4 pb-24 pr-20 pt-6 sm:pr-24 md:pb-28 md:pl-6 md:pr-36 md:pt-10">
+      <main className="relative z-10 mx-auto max-w-6xl px-4 pb-24 pr-4 pt-6 sm:pr-6 md:pb-28 md:pl-6 md:pr-36 md:pt-10">
         {children}
       </main>
 
