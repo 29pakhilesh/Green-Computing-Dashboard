@@ -216,14 +216,22 @@ Open the **Theory View** control in the header (or append **`#topic`** to the UR
 
 ## Build & deploy
 
+Build produces a static `dist/` folder.
+
 ```bash
 make build
 # → static files in dist/
 ```
 
-Serve `dist/` with any static host (Netlify, Vercel, S3, nginx, etc.). No server-side runtime required.
+Serve `dist/` with any static host (Netlify, S3, nginx, etc.). No server-side runtime required.
+
+Notes:
+- `dist/` is ignored by git; commit source code, not build artifacts.
 
 ---
+
+## Mobile-friendly behavior
+On small screens, the scroll guide/rope overlay is hidden to prevent overlap with the dashboard and cards. The Theory (`#topic`) page layout stacks and stays readable on phones.
 
 ## Tech stack
 
