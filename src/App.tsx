@@ -94,8 +94,8 @@ function App() {
         setSection((cur) => (cur === match.key ? cur : match.key));
       },
       {
-        threshold: [0.25, 0.4, 0.6],
-        rootMargin: "-80px 0px -55% 0px"
+        threshold: [0.15, 0.25, 0.4],
+        rootMargin: "-70px 0px -40% 0px"
       }
     );
 
@@ -135,7 +135,8 @@ function App() {
                 className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/40 transition hover:bg-emerald-400"
                 onClick={() => {
                   if (typeof window !== "undefined") {
-                    window.open("#topic", "_blank");
+                    const url = `${window.location.origin}${window.location.pathname}#topic`;
+                    window.open(url, "_blank", "noopener,noreferrer");
                   }
                 }}
               >
